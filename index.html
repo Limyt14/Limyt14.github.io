@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INTELLIGENTIA CORE | Engineering & Research 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg: #ffffff; --text: #050505; --accent: #0022ff; --border: #f0f0f0; --sidebar: #f8f9fa; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Lexend', sans-serif; display: flex; height: 100vh; overflow: hidden; line-height: 2.0; letter-spacing: 0.015em; }
+
+        /* --- NAVEGACIÓN --- */
+        aside { width: 450px; background: var(--sidebar); border-right: 2px solid var(--border); display: flex; flex-direction: column; padding: 50px 30px; overflow-y: auto; }
+        .brand { font-family: 'JetBrains Mono'; font-weight: 800; font-size: 1.4rem; margin-bottom: 40px; border-left: 12px solid #000; padding-left: 20px; }
+        .nav-label { font-size: 0.7rem; text-transform: uppercase; color: #a0a0a0; letter-spacing: 3px; margin: 35px 0 10px; font-weight: 700; border-bottom: 1px solid #eee; }
+        .nav-item { display: block; padding: 12px 0; color: var(--text); text-decoration: none; font-size: 0.95rem; transition: 0.3s; cursor: pointer; }
+        .nav-item:hover { color: var(--accent); transform: translateX(10px); }
+        .nav-item.active { font-weight: 800; color: var(--accent); border-right: 4px solid var(--accent); }
+
+        /* --- CONTENIDO --- */
+        main { flex: 1; overflow-y: auto; padding: 120px 8%; scroll-behavior: smooth; }
+        .article { max-width: 1100px; margin: 0 auto; animation: contentFade 1s ease-out; }
+        @keyframes contentFade { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; } }
+        
+        h1 { font-size: 4.8rem; font-weight: 800; letter-spacing: -6px; line-height: 0.9; margin-bottom: 4rem; }
+        h2 { font-size: 2.2rem; font-weight: 700; margin: 6rem 0 2rem; border-bottom: 5px solid #000; display: inline-block; }
+        h3 { font-size: 1.6rem; margin: 3rem 0 1.5rem; color: var(--accent); font-weight: 600; }
+        p { font-size: 1.3rem; margin-bottom: 3.5rem; text-align: justify; font-weight: 300; color: #111; }
+
+        .data-box { background: #000; color: #fff; padding: 40px; margin: 5rem 0; font-family: 'JetBrains Mono'; font-size: 0.9rem; border-radius: 2px; line-height: 1.6; }
+
+        /* --- COOKIES --- */
+        #cookie-wall { position: fixed; bottom: 40px; left: 40px; width: 450px; background: #000; color: #fff; padding: 40px; z-index: 2000; }
+        .c-btn { width: 100%; padding: 20px; background: #fff; color: #000; border: none; font-weight: 800; cursor: pointer; margin-top: 25px; text-transform: uppercase; }
+
+        @media (max-width: 1300px) { body { flex-direction: column; } aside { width: 100%; height: 35vh; } }
+    </style>
+</head>
+<body>
+
+    <div id="cookie-wall">
+        <p><strong>PROTOCOLO DE ACCESO</strong><br><br>Intelligentia Core requiere validación de cookies para el acceso a la base de datos técnica y servicios publicitarios de 2026.</p>
+        <button class="c-btn" onclick="document.getElementById('cookie-wall').style.display='none'">ACEPTAR Y VALIDAR</button>
+    </div>
+
+    <aside id="nav-target"></aside>
+
+    <main id="scroll-engine">
+        <div id="render-target" class="article"></div>
+    </main>
+
+    <script>
+        const library = {
+            'thermal': {
+                cat: "Termodinámica",
+                title: "Dinámica de Fonones en Silicio Sub-2nm",
+                body: `<p>La disipación térmica en semiconductores de escala nanométrica ha trascendido las soluciones convencionales de flujo convectivo para transformarse en una disciplina de mecánica cuántica aplicada. A medida que los transistores se reducen al nodo de 1.4 nanómetros, el transporte de energía no se rige por el movimiento de electrones, sino por la cinética de los fonones. Estos fonones, cuasipartículas que representan las vibraciones mecánicas de la red cristalina, encuentran una resistencia térmica interfacial (ITR) sin precedentes. En Intelligentia Core, analizamos cómo esta barrera física impide la evacuación eficiente del calor, generando gradientes térmicos que pueden comprometer la estabilidad estructural del chip en milisegundos bajo cargas de trabajo exaescala.</p>
+                <div class="data-box">> ANALYSIS_LOG: Resistencia de Kapitza crítica detectada. Los modelos de Fourier fallan en la escala atómica. Requiere simulación Monte Carlo de fonones.</div>
+                <h2>1.1 Gestión por Metal Líquido</h2>
+                <p>Para combatir la densidad de potencia extrema, la ingeniería de 2026 ha estandarizado el uso de interfaces de metal líquido basadas en aleaciones de Galio e Indio. A diferencia de las pastas tradicionales, el metal líquido ofrece una conductividad de hasta 80 W/mK. Sin embargo, su aplicación exige niquelado electrolítico previo para evitar la corrosión galvánica del cobre, asegurando una vida operativa superior a las 50,000 horas en servidores de alto rendimiento.</p>
+                <h3>1.2 Microcanales Activos</h3>
+                <p>La frontera final reside en microcanales grabados directamente en el sustrato. Mediante bombas iónicas de estado sólido, hacemos circular fluidos dieléctricos a través de canales de 50 micras, capturando el calor en la fuente. Este método permite a los aceleradores de IA operar a frecuencias sostenidas sin degradación por electromigración inducida por calor.</p>`
+            },
+            'semiconductors': {
+                cat: "Microelectrónica",
+                title: "Arquitectura Nanosheet y Litografía High-NA",
+                body: `<p>La transición hacia transistores Nanosheet (GAAFET) representa el cambio más profundo en la fabricación de chips. Al rodear completamente el canal con la puerta, logramos un control electrostático absoluto, minimizando el efecto de túnel cuántico que causaba fugas masivas en nodos FinFET. Esta eficiencia permite reducir el voltaje operativo hasta los 0.55V, permitiendo densidades que superan los 350 millones de transistores por mm².</p>
+                <div class="data-box">> STATUS: Litografía High-NA EUV operativa. Resolución de 8nm lograda en una sola exposición.</div>
+                <h2>2.1 Litografía EUV Avanzada</h2>
+                <p>El uso de luz de 13.5nm requiere espejos multicapa con rugosidad inferior a un átomo. Cualquier imperfección inutilizaría el wafer. La operativa en 2026 incluye cámaras de vacío criogénico para evitar interferencias moleculares, permitiendo una complejidad teórica que impulsa la inteligencia artificial generalizada.</p>
+                <h3>2.2 Interconexiones de Grafeno</h3>
+                <p>A medida que las pistas de cobre adelgazan, su resistencia aumenta. La solución es integrar grafeno dopado con cobalto. El grafeno permite movilidad electrónica superior, reduciendo el retraso de señal (RC Delay) en un 25% y desbloqueando anchos de banda de memoria superiores a 2 TB/s.</p>`
+            },
+            'fusion': {
+                cat: "Energía Estelar",
+                title: "Confinamiento Magnético en Reactores Tokamak",
+                body: `<p>La fusión nuclear controlada es la apuesta definitiva por energía inagotable. En los reactores Tokamak, el plasma de deuterio y tritio se calienta a 150 millones de grados, superando la repulsión de Coulomb para liberar helio y neutrones de alta energía. El reto es mantener la estabilidad magnetohidrodinámica para evitar disrupciones que dañen las paredes de wolframio del reactor.</p>
+                <div class="data-box">> ENERGY_CORE: Factor Q=10 proyectado. Superconductores REBCO operando a 20 Teslas.</div>
+                <h2>3.1 Superconductores REBCO</h2>
+                <p>Los imanes de óxido de bario, cobre y tierras raras permiten campos masivos operando a temperaturas de nitrógeno líquido. Estos superconductores de alta temperatura son el corazón de reactores compactos, reduciendo el tamaño físico de la planta en un 70% respecto a diseños previos.</p>
+                <h3>3.2 Mantos de Cría de Litio</h3>
+                <p>Dado que el tritio es escaso, los reactores integran un manto de litio que genera nuevo tritio al absorber neutrones. Este ciclo cerrado asegura autonomía operativa durante décadas, consolidando la fusión como la base de la red eléctrica global post-2030.</p>`
+            },
+            'quantum': {
+                cat: "Cómputo Cuántico",
+                title: "Decoherencia y Corrección de Errores Críticos",
+                body: `<p>La computación cuántica ha entrado en la era tolerante a fallos. Los procesadores modernos usan qubits superconductores Josephson. La superposición permite resolver problemas de optimización inalcanzables para computadoras binarias. Sin embargo, la fragilidad de los estados cuánticos exige sistemas criogénicos extremos y protocolos de corrección superficiales (surface codes).</p>
+                <div class="data-box">> QUANTUM_LINK: Coherencia mantenida durante 500 microsegundos. Tasa de error por debajo del umbral de corrección.</div>
+                <h2>4.1 Refrigeración por Dilución</h2>
+                <p>Para evitar la decoherencia, el chip se enfría a 10 milikelvins usando isótopos de Helio-3. El aislamiento térmico es tan estricto que requiere múltiples blindajes de mu-metal para bloquear interferencias magnéticas terrestres y cósmicas.</p>
+                <h3>4.2 Criptografía Post-Cuántica</h3>
+                <p>Ante la amenaza del algoritmo de Shor, Intelligentia Core detalla algoritmos basados en retículos (lattices), resistentes a ataques cuánticos. Esta migración garantiza la soberanía de los datos financieros globales frente a la capacidad de cómputo de 2026.</p>`
+            },
+            'aerospace': {
+                cat: "Aeroespacial",
+                title: "Propulsión Scramjet y Dinámica Hipersónica",
+                body: `<p>El vuelo hipersónico (Mach 5+) exige redefinir la propulsión. Los motores Scramjet operan sin partes móviles, permitiendo que el aire fluya a velocidades supersónicas por la cámara de combustión. Esto genera desafíos térmicos extremos en los bordes de ataque, elevando la temperatura sobre los 2000°C.</p>
+                <div class="data-box">> FLIGHT_DATA: Estructuras de Carbono-Carbono validadas. Combustión de Hidrógeno estable a Mach 7.</div>
+                <h2>5.1 Materiales Ablativos y Cerámicos</h2>
+                <p>Se utilizan compuestos de carbono reforzado con carburo de silicio para evitar la oxidación. Estos materiales mantienen resistencia mecánica donde el titanio se fundiría, permitiendo vuelos prolongados en la alta atmósfera para transporte logístico global.</p>
+                <h3>5.2 Gestión del Hidrógeno</h3>
+                <p>El hidrógeno líquido actúa como refrigerante antes de la ignición. La gestión de la llama en flujos supersónicos es controlada por IA para evitar el apagado inducido por ondas de choque, asegurando una eficiencia propulsiva sin precedentes.</p>`
+            },
+            'ai_infra': {
+                cat: "Arquitectura IA",
+                title: "Redes Neuronales de Memoria Holográfica",
+                body: `<p>La infraestructura de IA en 2026 ha migrado hacia el almacenamiento holográfico de pesos sinápticos. A diferencia de la memoria NAND, la holografía permite lecturas paralelas masivas, reduciendo la latencia de inferencia en modelos de billones de parámetros. Esto elimina el cuello de botella de Von Neumann, permitiendo que la IA procese datos a la velocidad del silicio.</p>
+                <div class="data-box">> AI_NODE: Eficiencia energética aumentada 50x mediante computación neuromórfica en el borde.</div>
+                <h2>6.1 Chips Neuromórficos</h2>
+                <p>Inspirados en la estructura del cerebro humano, estos chips procesan información mediante picos (spikes) de voltaje, consumiendo energía solo cuando hay actividad. Es la base de la robótica autónoma que requiere autonomía de batería prolongada y procesamiento sensorial en tiempo real.</p>
+                <h3>6.2 Ética de Algoritmos Autónomos</h3>
+                <p>Documentamos los protocolos de seguridad "Kill-Switch" integrados en el hardware. Estos sistemas desconectan el flujo de datos si se detectan divergencias en los objetivos éticos programados, garantizando que la IA actúe siempre dentro de los marcos de seguridad humana establecidos.</p>`
+            },
+            'biotech': {
+                cat: "Biotecnología",
+                title: "Edición Genética CRISPR-Cas12 y Biochips",
+                body: `<p>La biotecnología ha convergido con la microelectrónica mediante el desarrollo de biochips que monitorean la expresión génica en tiempo real. La tecnología CRISPR-Cas12 permite ediciones de precisión quirúrgica en el genoma humano para erradicar enfermedades hereditarias, planteando nuevos horizontes en la medicina personalizada.</p>
+                <div class="data-box">> BIO_LOG: Sensores de grafeno detectando mutaciones virales con 99.9% de precisión.</div>
+                <h2>7.1 Órganos en un Chip</h2>
+                <p>Utilizamos sistemas microfluídicos para replicar la función de órganos humanos en dispositivos de silicio. Esto permite probar fármacos sin experimentación animal, acelerando la llegada de tratamientos oncológicos al mercado en una fracción del tiempo tradicional.</p>
+                <h3>7.2 Nanobots Médicos</h3>
+                <p>Máquinas moleculares diseñadas para navegar el flujo sanguíneo y desobstruir arterias o entregar quimioterapia directamente en células tumorales. Estos sistemas son controlados externamente mediante campos magnéticos de baja frecuencia, minimizando los efectos secundarios sistémicos.</p>`
+            },
+            'telecom': {
+                cat: "Telecomunicaciones",
+                title: "Redes 6G y Comunicaciones Terahertz",
+                body: `<p>El despliegue de la red 6G utiliza el espectro de Terahercios para lograr velocidades de 1 Tbps. Esta capacidad habilita la "Internet de los Sentidos", donde la realidad aumentada y la retroalimentación háptica son instantáneas. La infraestructura requiere una densidad de celdas pequeñas sin precedentes, integradas en el mobiliario urbano.</p>
+                <div class="data-box">> SIGNAL_REPORT: Latencia sub-milisegundo lograda mediante conformado de haces (Beamforming) activo.</div>
+                <h2>8.1 Satélites de Órbita Baja (LEO)</h2>
+                <p>Las megaconstelaciones de satélites aseguran cobertura global total, incluyendo zonas polares y oceánicas. El uso de enlaces láser inter-satelitales permite que los datos viajen por el vacío del espacio a la velocidad de la luz, superando la velocidad de la fibra óptica transoceánica.</p>
+                <h3>8.2 Seguridad Cuántica en Redes</h3>
+                <p>Implementamos la Distribución de Claves Cuánticas (QKD) para proteger las comunicaciones gubernamentales. Cualquier intento de interceptación colapsa la función de onda de los fotones, alertando instantáneamente de la brecha de seguridad y haciendo la red físicamente inviolable.</p>`
+            },
+            'robotics': {
+                cat: "Robótica",
+                title: "Actuadores de Músculo Artificial y Exosqueletos",
+                body: `<p>La robótica industrial ha evolucionado hacia el uso de polímeros electroactivos que imitan la contracción muscular humana. Estos actuadores ofrecen una relación fuerza-peso superior a los motores hidráulicos, permitiendo robots más ágiles, silenciosos y seguros para la interacción humana directa en entornos de manufactura.</p>
+                <div class="data-box">> ROBOT_DATA: Sensibilidad táctil lograda mediante piel electrónica (E-Skin) piezoeléctrica.</div>
+                <h2>9.1 Exosqueletos de Grado Industrial</h2>
+                <p>Diseñados para aumentar la capacidad de carga de los operarios en un 500%, estos sistemas integran sensores de intención de movimiento que predicen el esfuerzo del usuario, reduciendo a cero el riesgo de lesiones lumbares y aumentando la productividad en la construcción pesada.</p>
+                <h3>9.2 Enjambres de Drones Autónomos</h3>
+                <p>Utilizamos algoritmos de comportamiento colectivo para coordinar miles de drones en tareas de rescate o agricultura de precisión. Cada unidad actúa de forma independiente pero coordinada, optimizando la cobertura de área y la eficiencia en la recolección de datos ambientales.</p>`
+            },
+            'cyber': {
+                cat: "Ciberseguridad",
+                title: "Defensa Activa mediante IA y Zero-Trust",
+                body: `<p>En un mundo de amenazas automatizadas, la ciberseguridad ha pasado a un modelo de "Confianza Cero" (Zero-Trust). Cada acceso, dispositivo y flujo de datos es verificado continuamente mediante análisis de comportamiento por IA. La defensa activa no solo bloquea ataques, sino que despliega "honeypots" dinámicos para estudiar al atacante en tiempo real.</p>
+                <div class="data-box">> SECURITY_ALERT: Intentos de intrusión mitigados mediante aislamiento de contenedores por hardware.</div>
+                <h2>10.1 Seguridad a Nivel de Firmware</h2>
+                <p>Protegemos la cadena de suministro mediante raíces de confianza (Root of Trust) integradas en el silicio. Esto asegura que ningún código malicioso pueda ejecutarse antes que el sistema operativo, blindando la infraestructura crítica contra ataques de nivel de estado.</p>
+                <h3>10.2 Identidad Digital Biométrica</h3>
+                <p>La eliminación de contraseñas es una realidad mediante el uso de biometría multimodal (iris, patrón de venas y dinámica de tecleo). Este sistema es prácticamente imposible de suplantar, garantizando que el acceso a Intelligentia Core sea exclusivo para personal técnico validado.</p>`
+            }
+        };
+
+        function buildMenu() {
+            const nav = document.getElementById('nav-target');
+            let html = '<div class="brand">INTELLIGENTIA_CORE</div>';
+            for (let key in library) {
+                html += `<div class="nav-group">
+                    <span class="nav-label">${library[key].cat}</span>
+                    <a href="javascript:void(0)" onclick="load('${key}')" class="nav-item" id="nav-${key}">${library[key].title}</a>
+                </div>`;
+            }
+            nav.innerHTML = html;
+        }
+
+        function load(id) {
+            const data = library[id];
+            const area = document.getElementById('render-target');
+            document.querySelectorAll('.nav-item').forEach(e => e.classList.remove('active'));
+            document.getElementById(`nav-${id}`).classList.add('active');
+
+            area.innerHTML = `
+                <div style="font-family:'JetBrains Mono'; font-size:0.8rem; color:var(--accent); margin-bottom:2rem; letter-spacing:2px;">
+                    :: REPOSITORY_NODE_2026 // ACCESS_GRANTED // REF_${id.toUpperCase()}
+                </div>
+                <h1>${data.title}</h1>
+                <div class="article-content">${data.body}</div>
+                <section style="background:#f9f9f9; padding:60px; margin-top:10rem; border-top:10px solid #000;">
+                    <h2>FORO DE CONSULTA TÉCNICA</h2>
+                    <p>Acceso restringido. Ingrese parámetros para validación por nuestro panel de ingenieros.</p>
+                    <form style="display:grid; grid-template-columns:1fr 1fr; gap:30px; margin-top:40px;">
+                        <input type="text" placeholder="ID Investigador" style="padding:20px; border:2px solid #ddd; font-family:'Lexend'; font-size:1rem;">
+                        <input type="email" placeholder="Email Institucional" style="padding:20px; border:2px solid #ddd; font-family:'Lexend'; font-size:1rem;">
+                        <textarea placeholder="Descripción del desafío técnico..." style="grid-column:span 2; padding:20px; border:2px solid #ddd; font-family:'Lexend'; font-size:1rem; height:200px;"></textarea>
+                        <button type="submit" style="grid-column:span 2; padding:25px; background:#000; color:#fff; font-weight:800; border:none; cursor:pointer; font-size:1.1rem; letter-spacing:2px;">REGISTRAR EN EL NODO</button>
+                    </form>
+                </section>
+            `;
+            document.getElementById('scroll-engine').scrollTo(0,0);
+        }
+
+        buildMenu();
+        load('thermal');
+    </script>
+</body>
+</html>
